@@ -1,0 +1,23 @@
+Description: Disable one test that needs a newer source-map
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2019-08-07
+
+--- a/legacy/test/test.js
++++ b/legacy/test/test.js
+@@ -126,6 +126,7 @@
+ 			assert.deepEqual(valuesMap, { ANSWER: '42' });
+ 		});
+ 
++		/*
+ 		it('generates sourcemaps', async () => {
+ 			const bundle = await rollup({
+ 				input: 'main.js',
+@@ -170,6 +171,7 @@
+ 				assert.equal(loc.column, 8);
+ 			});
+ 		});
++		*/
+ 
+ 		it('does not generate sourcemaps if disabled', async () => {
+ 			let warned = false;

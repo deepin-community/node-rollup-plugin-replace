@@ -1,0 +1,137 @@
+node-rollup-plugin-replace (2.3.4+repack+~2.2.0-1) unstable; urgency=medium
+
+  * Team upload
+  * Remove @rollup/wasm from import (Closes: #975362) and repack
+
+ -- Xavier Guimard <yadd@debian.org>  Sat, 21 Nov 2020 09:27:42 +0100
+
+node-rollup-plugin-replace (2.3.4+~2.2.0-1) unstable; urgency=medium
+
+  * Team upload
+  * Use dh-sequence-nodejs
+  * Use pkg-js-tools 0.9.41 auto test link
+  * New upstream version 2.3.4+~2.2.0
+  * Update dependencies
+  * Refresh patches
+
+ -- Xavier Guimard <yadd@debian.org>  Fri, 30 Oct 2020 11:05:15 +0100
+
+node-rollup-plugin-replace (2.3.3+~2.2.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Back to unstable after successful tests
+
+ -- Xavier Guimard <yadd@debian.org>  Thu, 24 Sep 2020 11:27:20 +0200
+
+node-rollup-plugin-replace (2.3.3+~2.2.0-1) experimental; urgency=medium
+
+  * Team upload
+  * Update homepage
+  * Update upstream name to @rollup/plugin-replace
+  * Embed legacy rollup-plugin-replace as component
+  * New upstream version 2.3.3+~2.2.0
+  * Require node-rollup-pluginutils ≥ 3.0.8~
+  * Update build
+  * Add lintian overrides
+  * Update copyright
+  * Enable upstream test using tape instead of ava
+
+ -- Xavier Guimard <yadd@debian.org>  Mon, 21 Sep 2020 18:20:40 +0200
+
+node-rollup-plugin-replace (2.2.0-6) unstable; urgency=medium
+
+  * Team upload
+  * Fix test for rollup ≥ 1.32.1
+  * Bump debhelper compatibility level to 13
+  * Fix invalid profile name: replace js.transpile.* by
+    pkg.node-rollup-plugin-replace.transpile*
+
+ -- Xavier Guimard <yadd@debian.org>  Mon, 21 Sep 2020 16:54:23 +0200
+
+node-rollup-plugin-replace (2.2.0-5) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Submit.
+  * Remove obsolete fields Contact, Name from debian/upstream/metadata
+    (already present in machine-readable debian/copyright).
+
+  [ Pirate Praveen ]
+  * Build with Babel 7
+
+ -- Pirate Praveen <praveen@debian.org>  Sat, 02 May 2020 11:31:24 +0530
+
+node-rollup-plugin-replace (2.2.0-4) unstable; urgency=medium
+
+  * Team upload
+  * Do not transpile by default
+  * Bump policy (no changes)
+  * Remove not needed link index.js
+
+ -- Bastien Roucariès <rouca@debian.org>  Mon, 24 Feb 2020 22:13:05 +0100
+
+node-rollup-plugin-replace (2.2.0-3) unstable; urgency=medium
+
+  * Team upload
+  * Add node-rollup-plugin-buble as build dependency (rollup dropped this
+    dependency from 0.56.3-1)
+  * Add debian/nodejs/build (simplify debian/rules)
+  * Bump Standards-Version to 4.4.1 (no changes needed)
+
+ -- Pirate Praveen <praveen@debian.org>  Wed, 02 Oct 2019 17:59:50 +0530
+
+node-rollup-plugin-replace (2.2.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Bump debhelper compatibility level to 12
+  * Add debian/gbp.conf
+  * Add upstream/metadata
+  * Switch install to pkg-js-tools
+  * Enable upstream test
+
+ -- Xavier Guimard <yadd@debian.org>  Wed, 07 Aug 2019 20:58:42 +0200
+
+node-rollup-plugin-replace (2.2.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Fix typo in Vcs-Git.
+  * Bump std-vers to 4.4.0.
+
+ -- Julien Puydt <jpuydt@debian.org>  Wed, 17 Jul 2019 15:43:10 +0200
+
+node-rollup-plugin-replace (2.1.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh packaging:
+    - Use my debian.org mail address.
+    - Point Vcs-* fields to salsa.
+    - Bump std-ver to 4.2.1.
+    - Refresh the patch.
+
+ -- Julien Puydt <jpuydt@debian.org>  Thu, 11 Oct 2018 00:10:45 +0200
+
+node-rollup-plugin-replace (2.0.0-2) unstable; urgency=medium
+
+  * Use rollup --like upstream.
+  * Refresh packaging:
+    - Bump dh compat to 11.
+    - Bump std-ver to 4.1.3.
+    - Refresh d/copyright.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Sun, 25 Feb 2018 08:36:04 +0100
+
+node-rollup-plugin-replace (2.0.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump d/watch to version 4.
+  * Bump std-ver to 4.1.0.
+  * Refresh the patch for old nodejs support.
+  * Improve module exports.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Fri, 08 Sep 2017 07:53:03 +0200
+
+node-rollup-plugin-replace (1.1.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #867615)
+  * Bump dh compat to 10.
+
+ -- Julien Puydt <julien.puydt@laposte.net>  Fri, 07 Jul 2017 21:40:31 +0200

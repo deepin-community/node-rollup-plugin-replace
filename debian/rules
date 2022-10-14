@@ -1,0 +1,30 @@
+#!/usr/bin/make -f
+
+ifneq ($(filter pkg.node-rollup-plugin-replace.transpilebabel,$(DEB_BUILD_PROFILES)),)
+TRANSPILE_PROF?=babel6
+BABEL_PRESET?=env
+export BABEL_PRESET
+else ifneq ($(filter pkg.node-rollup-plugin-replace.transpilebuble,$(DEB_BUILD_PROFILES)),)
+TRANSPILE_PROF?=buble
+else ifneq ($(filter pkg.node-rollup-plugin-replace.transpilenone,$(DEB_BUILD_PROFILES)),)
+TRANSPILE_PROF?=none
+else
+TRANSPILE_PROF?=none
+endif
+TRANSPILE?=$(TRANSPILE_PROF)
+export TRANSPILE
+
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# Build legacy module
+	dh_auto_build --buildsystem=nodejs
+	# Build @rollup/plugin-replace
+	cd packages/replace; if rollup -c; then \
+		echo "build succeeds"; \
+	else \
+		echo "build failed, trying with legacy rollup plugins"; \
+		rollup -c ../../debian/rollup-legacy.config.js; \
+	fi

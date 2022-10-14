@@ -1,0 +1,16 @@
+Description: don't use default values for arguments
+Author: Julien Puydt
+Forwarded: not-needed
+
+--- a/legacy/src/index.js
++++ b/legacy/src/index.js
+@@ -35,7 +35,8 @@
+ 	}, {});
+ }
+ 
+-export default function replace(options = {}) {
++export default function replace(options) {
++        if (!options) options = {};
+ 	const filter = createFilter(options.include, options.exclude);
+ 	const { delimiters } = options;
+ 	const functionValues = mapToFunctions(getReplacements(options));

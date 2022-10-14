@@ -1,0 +1,2 @@
+cd packages/replace
+tape `ls test/*.js|grep -v sourcemaps.js`

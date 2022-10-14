@@ -1,0 +1,4 @@
+Test-Command: cd legacy && sh -e ../debian/nodejs/legacy/test
+Depends: @, @builddeps@
+Features: test-name=legacy-test
+Restrictions: allow-stderr
