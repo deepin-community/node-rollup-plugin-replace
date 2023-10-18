@@ -2,7 +2,13 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: @rollup/plugin-replace
 Upstream-Contact: https://github.com/rollup/plugins/issues
 Source: https://github.com/rollup/plugins#readme
-Files-Excluded: packages/wasm
+Files-Excluded: packages/alias packages/auto-install packages/beep packages/buble
+ 		packages/babel packages/commonjs packages/data-uri packages/dsv
+ 		packages/dynamic-import-vars packages/eslint packages/graphql packages/html
+ 		packages/image packages/inject packages/json packages/legacy
+ 		packages/multi-entry packages/node-resolve packages/pluginutils packages/run
+ 		packages/strip packages/sucrase packages/typescript packages/url
+ 		packages/virtual packages/wasm packages/yaml
 
 Files: *
 Copyright: 2019 RollupJS Plugin Contributors <https://github.com/rollup/plugins/graphs/contributors>
@@ -14,7 +20,7 @@ License: Expat
 
 Files: debian/*
 Copyright: 2017-2018 Julien Puydt <jpuydt@debian.org>
- 2020 Xavier Guimard <yadd@debian.org>
+ 2020 Yadd <yadd@debian.org>
 License: Expat
 
 License: Expat

@@ -1,10 +1,13 @@
 [cover]: https://codecov.io/gh/rollup/plugins/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/rollup/plugins
+[discord]: https://img.shields.io/discord/466787075518365708?color=778cd1&label=chat
+[discord-url]: https://is.gd/rollup_chat
 [tests]: https://img.shields.io/circleci/project/github/rollup/plugins.svg
 [tests-url]: https://circleci.com/gh/rollup/plugins
 
 [![tests][tests]][tests-url]
 [![cover][cover]][cover-url]
+[![discord][discord]][discord-url]
 [![libera manifesto](https://img.shields.io/badge/libera-manifesto-lightgrey.svg)](https://liberamanifesto.com)
 
 # Rollup Plugins
@@ -39,6 +42,7 @@ This repository houses plugins that Rollup considers critical to every day use o
 | [run](packages/run)                                 | Run your bundles in Node once they're built                                               |
 | [strip](packages/strip)                             | Remove debugger statements and functions like assert.equal and console.log from your code |
 | [sucrase](packages/sucrase)                         | Compile TypeScript, Flow, JSX, etc with Sucrase                                           |
+| [terser](packages/terser)                           | Generate a minified output bundle with terser                                             |
 | [typescript](packages/typescript)                   | Integration between Rollup and Typescript                                                 |
 | [url](packages/url)                                 | Import files as data-URIs or ES Modules                                                   |
 | [virtual](packages/virtual)                         | Load virtual modules from memory                                                          |
@@ -55,7 +59,7 @@ This repository houses plugins that Rollup considers critical to every day use o
 
 ## Contributing
 
-This repository is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) which leverages [pnpm](https://pnpm.js.org/) for dependency management.
+This repository is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) which leverages [pnpm](https://pnpm.io/) for dependency management.
 
 To begin, please install `pnpm`:
 
@@ -70,7 +74,7 @@ All plugin packages are kept in the `/packages` directory.
 #### Adding dependencies:
 
 ```console
-$ pnpm add <package> --filter ./packages/<name>
+$ pnpm --filter ./packages/<name> add <package>
 ```
 
 Where `<package>` is the name of the NPM package you wish to add for a plugin package, and `<name>` is the proper name of the plugin. e.g. `@rollup/plugin-beep`.
@@ -78,7 +82,7 @@ Where `<package>` is the name of the NPM package you wish to add for a plugin pa
 #### Publishing:
 
 ```console
-$ pnpm run publish -- <name> [flags]
+$ pnpm publish <name> [flags]
 ```
 
 Where `<name>` is the portion of the plugin package name following `@rollup/plugin-`. (e.g. `beep`)
@@ -109,13 +113,13 @@ The following flags are available to modify the publish process:
 To run tests on all packages which have changes:
 
 ```console
-$ pnpm run test
+$ pnpm test
 ```
 
 To run tests on a specific package:
 
 ```console
-$ pnpm run test --filter ./packages/<name>
+$ pnpm --filter ./packages/<name> test
 ```
 
 Linting:
@@ -123,16 +127,16 @@ Linting:
 To lint all packages which have changes:
 
 ```console
-$ pnpm run lint
+$ pnpm lint
 ```
 
 To lint a specific package:
 
 ```console
-$ pnpm run lint --filter ./packages/<name>
+$ pnpm --filter ./packages/<name> lint
 ```
 
-_Note: Scripts in the repository will run the root `test` and `lint` script on those packages which have changes. This is also how the CI pipelines function. To run either on a package outside of that pipeline, use `pnpm run <script> -- @rollup/plugin-<name>`._
+_Note: Scripts in the repository will run the root `test` and `lint` script on those packages which have changes. This is also how the CI pipelines function. To run either on a package outside of that pipeline, use `pnpm <script> @rollup/plugin-<name>`._
 
 ## Adding Plugins
 
@@ -142,4 +146,4 @@ While we don't have an official procedure for adding third-party plugins to this
 
 [CONTRIBUTING](./.github/CONTRIBUTING.md)
 
-[LICENSE (Mozilla Public License)](./LICENSE)
+[LICENSE (MIT)](./LICENSE)

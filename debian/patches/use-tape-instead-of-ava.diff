@@ -1,7 +1,7 @@
 Description: use tape instead of ava
 Author: Xavier Guimard <yadd@debian.org>
 Forwarded: not-needed
-Last-Update: 2020-09-21
+Last-Update: 2022-10-14
 
 --- a/packages/replace/test/form.js
 +++ b/packages/replace/test/form.js
@@ -12,18 +12,17 @@ Last-Update: 2020-09-21
 -const test = require('ava');
 +const test = require('tape');
  
--const replace = require('../dist/rollup-plugin-replace.cjs.js');
+-const replace = require('..');
 +const replace = require('@rollup/plugin-replace');
  
  const transformContext = {};
  
-@@ -27,7 +27,8 @@
+@@ -27,7 +27,7 @@
        transform.call(transformContext, input, `${__dirname}/fixtures/form/${dir}/input.js`)
      ).then((transformed) => {
        const actual = (transformed ? transformed.code : input).trim();
 -      t.snapshot(actual);
 +      t.ok(actual);
-+      t.end();
      });
    });
  });
@@ -37,47 +36,48 @@ Last-Update: 2020-09-21
 +const test = require('tape');
  const { rollup } = require('rollup');
  
--const replace = require('../dist/rollup-plugin-replace.cjs.js');
+-const replace = require('..');
 +const replace = require('@rollup/plugin-replace');
  
  const { execute, getCodeFromBundle } = require('./helpers/util');
  
-@@ -39,5 +39,6 @@
-     const exports = execute(code, config.context, t);
- 
-     if (config.exports) config.exports(exports);
-+    t.end();
-   });
- });
 --- a/packages/replace/test/misc.js
 +++ b/packages/replace/test/misc.js
-@@ -1,9 +1,9 @@
- /* eslint-disable consistent-return */
+@@ -2,10 +2,10 @@
+ 
+ const { join } = require('path');
  
 -const test = require('ava');
 +const test = require('tape');
  const { rollup } = require('rollup');
  
--const replace = require('../dist/rollup-plugin-replace.cjs.js');
+-const replace = require('..');
 +const replace = require('@rollup/plugin-replace');
  
  const { getOutputFromGenerated } = require('./helpers/util');
  
-@@ -29,6 +29,7 @@
-   const { code } = getOutputFromGenerated(await bundle.generate({ format: 'es' }));
-   t.is(code.trim(), 'log(42);');
-   t.deepEqual(valuesMap, { ANSWER: '42' });
-+  t.end();
- });
- 
- test('can be configured with output plugins', async (t) => {
-@@ -61,6 +62,7 @@
+@@ -63,22 +63,6 @@
      })
    );
  
--  t.is(code.trim(), 'log("environment", "production");');
+-  t.is(code.trim(), 'log("environment", "production");\n//# sourceMappingURL=main.js.map');
 -  t.truthy(map);
-+  //t.is(code.trim(), 'log("environment", "production");');
+-});
+-
+-process.chdir(join(__dirname, 'fixtures', 'form', 'assignment'));
+-
+-test.serial('no explicit setting of preventAssignment', async (t) => {
+-  // eslint-disable-next-line no-undefined
+-  const possibleValues = [undefined, true, false];
+-  for await (const value of possibleValues) {
+-    const warnings = [];
+-    await rollup({
+-      input: 'input.js',
+-      onwarn: (warning) => warnings.push(warning),
+-      plugins: [replace({ preventAssignment: value })]
+-    });
+-    t.snapshot(warnings);
+-  }
++  t.ok(code.trim().match(/log\("environment", "production"\)/));
 +  t.ok(map);
-+  t.end();
  });

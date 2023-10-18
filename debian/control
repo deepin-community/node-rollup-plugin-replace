@@ -6,16 +6,16 @@ Testsuite: autopkgtest-pkg-nodejs
 Priority: optional
 Build-Depends:
  debhelper-compat (= 13)
- , mocha <!nocheck>
- , node-magic-string
- , node-rollup-plugin-babel (>= 4.4~) <!pkg.node-rollup-plugin-replace.transpilebuble>
- , node-rollup-plugin-buble (>= 0.19.8~) <pkg.node-rollup-plugin-replace.transpilebuble>
- , node-rollup-pluginutils (>= 3.1.0~)
- , node-tape <!nocheck>
- , nodejs (>= 10)
  , dh-sequence-nodejs
- , rollup (>> 0.68.2+ds~)
-Standards-Version: 4.5.0
+ , mocha <!nocheck>
+ , node-locate-character <!nocheck>
+ , node-magic-string (>= 0.27)
+ , node-rollup-plugin-buble
+ , node-rollup-plugin-typescript
+ , node-rollup-pluginutils
+ , node-tape <!nocheck>
+ , rollup (>= 2.67~)
+Standards-Version: 4.6.2
 Vcs-Browser: https://salsa.debian.org/js-team/node-rollup-plugin-replace
 Vcs-Git: https://salsa.debian.org/js-team/node-rollup-plugin-replace.git
 Homepage: https://github.com/rollup/plugins
@@ -25,10 +25,10 @@ Package: node-rollup-plugin-replace
 Architecture: all
 Depends:
  ${misc:Depends}
- , node-magic-string
- , node-minimatch (>= 3.0.2)
+ , node-magic-string (>= 0.27)
+ , node-minimatch
  , node-rollup-pluginutils (>= 3.1.0~)
-Recommends: rollup
+Recommends: rollup (>= 2.67~)
 Enhances: rollup
 Breaks: rollup (<< 0.68.2+ds~)
 Description: Rollup plugin to make string substitutions while bundling

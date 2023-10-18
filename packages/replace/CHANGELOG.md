@@ -1,5 +1,93 @@
 # @rollup/plugin-replace ChangeLog
 
+## v5.0.2
+
+_2022-12-17_
+
+### Bugfixes
+
+- fix: update magic-string [#1373](https://github.com/rollup/plugins/pull/1373)
+
+## v5.0.1
+
+_2022-10-21_
+
+### Updates
+
+- chore: update rollup dependencies ([3038271](https://github.com/rollup/plugins/commit/303827191ede6b2e4eade96c6968ed16a587683f))
+
+## v5.0.0
+
+_2022-10-10_
+
+### Breaking Changes
+
+- fix: prepare for Rollup 3 [#1286](https://github.com/rollup/plugins/pull/1286)
+
+## v4.0.0
+
+_2022-02-22_
+
+### Breaking Changes
+
+- fix: do not escape delimiters (#1088)
+
+## v3.1.0
+
+_2022-02-11_
+
+### Features
+
+- feat: typeofReplacements option (#1084)
+
+## v3.0.1
+
+_2021-12-28_
+
+### Bugfixes
+
+- fix: add types for `sourceMap` option (#1066)
+
+### Updates
+
+- docs: clarify delimiters typing (#1013)
+
+## v3.0.0
+
+_2021-07-16_
+
+### Breaking Changes
+
+- fix!: issues with nested objects replacements (#903)
+
+## v2.4.2
+
+_2021-03-26_
+
+### Updates
+
+- docs: document the `values` option (#814)
+
+## v2.4.1
+
+_2021-02-22_
+
+### Bugfixes
+
+- fix: add missing types for new `preventAssignment` option (#813)
+
+## v2.4.0
+
+_2021-02-22_
+
+### Features
+
+- feat: prevent accidental replacement within assignment (#798)
+
+### Updates
+
+- docs: clarify replacement. fixes #737 (#785)
+
 ## v2.3.4
 
 _2020-10-27_
