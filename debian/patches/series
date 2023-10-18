@@ -1,5 +1,5 @@
 default_value
 disable-test-that-needs-a-recent-source-map.diff
-transpile-configurable.patch
 fix-testsuite-for-recent-rollup.diff
 use-tape-instead-of-ava.diff
+legacy-fix-for-rollup-3.patch

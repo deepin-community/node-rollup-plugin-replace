@@ -1,2 +1,4 @@
 cd packages/replace
-tape `ls test/*.js|grep -v sourcemaps.js`
+for filename in `ls test/*.js|grep -v sourcemaps.js`; do
+  tape $filename ;
+done

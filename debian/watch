@@ -1,12 +1,15 @@
 version=4
 opts=\
+repack,\
+repacksuffix=+ds,\
 mode=git,\
 dversionmangle=auto,\
-filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-rollup-plugin-replace-$1.tar.gz/ \
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-rollup-plugin-replace-$1/ \
  https://github.com/rollup/plugins.git refs/tags/replace-v?([\d\.]+) group
 
 opts=\
+ctype=nodejs,\
 component=legacy,\
 dversionmangle=auto,\
-filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-rollup-plugin-replace-$1.tar.gz/ \
- https://github.com/rollup/rollup-plugin-replace/tags .*/archive/v?([\d\.]+).tar.gz group
+filenamemangle=s/v?([\d\.-]+)\.tar\.gz/node-rollup-plugin-replace-$1.tar.gz/ \
+ https://github.com/rollup/rollup-plugin-replace/tags .*/archive/.*/v?([\d\.]+).tar.gz group

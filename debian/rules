@@ -1,20 +1,5 @@
 #!/usr/bin/make -f
 
-ifneq ($(filter pkg.node-rollup-plugin-replace.transpilebabel,$(DEB_BUILD_PROFILES)),)
-TRANSPILE_PROF?=babel6
-BABEL_PRESET?=env
-export BABEL_PRESET
-else ifneq ($(filter pkg.node-rollup-plugin-replace.transpilebuble,$(DEB_BUILD_PROFILES)),)
-TRANSPILE_PROF?=buble
-else ifneq ($(filter pkg.node-rollup-plugin-replace.transpilenone,$(DEB_BUILD_PROFILES)),)
-TRANSPILE_PROF?=none
-else
-TRANSPILE_PROF?=none
-endif
-TRANSPILE?=$(TRANSPILE_PROF)
-export TRANSPILE
-
-
 %:
 	dh $@
 
